@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tezte</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>CUIZ ONLANE</h1>
+      <nav>
+        <ul>
+          <li>Informações</li>
+          <li>Quiz</li>
+          <li>Contato</li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <img src="./assets/carros.jpg" alt="" />
+      <h2>Qual personagem do carros voce eh?</h2>
+      <p>descubra qual carro filho da puta voce eh no filme carors</p>
+      <button type="button" onclick="Start()">Comece o Quiz</button>
+
+    <div class="deno" id="demo">
+        <p>Digite seu nome</p>
+        <input class="btn" placeholder="Fala o vulgo" type="text" />
+        <p>Número do Cartão de Crédito</p>
+        <input
+          class="btn"
+          placeholder="Confia nu pai"
+          type="text"
+          minlength="16"
+          maxlength="16"
+          onkeypress="if (!isNaN(String.fromCharCode(window.event.keyCode))) return true; else return false;"
+        />
+        <p>Data de Validade</p>
+        <input class="btn" placeholder="AAAAAAI" type="month" maxlength="3" />
+        <p>CVC</p>
+        <input
+          class="btn"
+          placeholder="Confia nu pai"
+          type="text"
+          minlength="3"
+          maxlength="3"
+          onkeypress="if (!isNaN(String.fromCharCode(window.event.keyCode))) return true; else return false;"
+        />
+
+        <button type="button" onclick="Start2()">Pronto</button>
+    </div>
+    <div class="macu" id="macui">
+        <img src="./assets/macui.jpg" alt="macuin">
+        <h2>Macui</h2>
+    </div>
+    </main>
+
+    <script>
+      function Start() {
+        document.getElementById("demo").style.display = "flex";
+      }
+
+      function Start2() {
+        document.getElementById("macui").style.display = "flex";
+      }
+
+      function checkInputs(inputs) {
+        var filled = true;
+
+        inputs.forEach(function (input) {
+          if (input.value === "") {
+            filled = false;
+          }
+        });
+
+        return filled;
+      }
+      var inputs = document.querySelectorAll("input");
+      var button = document.querySelector("button");
+      inputs.forEach(function (input) {
+        input.addEventListener("keyup", function () {
+          if (checkInputs(inputs)) {
+            button.disabled = false;
+          } else {
+            button.disabled = true;
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
